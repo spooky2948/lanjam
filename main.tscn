@@ -1,3 +1,30 @@
-[gd_scene load_steps=0 format=3 uid="uid://dalf3eyx06dh4"]
+[gd_scene load_steps=3 format=3 uid="uid://ckeosjg3yu3jp"]
+
+[ext_resource type="PackedScene" uid="uid://1idcbut22ibq" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b8kn0tsd460nq" path="res://colonthree.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="testing" type="Node2D" parent="."]
+
+[node name="Colonthree" parent="testing" instance=ExtResource("2_0xm2m")]
+position = Vector2(41, -32)
+
+[node name="Colonthree2" parent="testing" instance=ExtResource("2_0xm2m")]
+position = Vector2(-21, 96)
+
+[node name="Colonthree3" parent="testing" instance=ExtResource("2_0xm2m")]
+position = Vector2(-76, -57)
+
+[node name="Colonthree4" parent="testing" instance=ExtResource("2_0xm2m")]
+position = Vector2(-90, 49)
+
+[node name="Colonthree5" parent="testing" instance=ExtResource("2_0xm2m")]
+position = Vector2(91, 130)
+
+[node name="Colonthree6" parent="testing" instance=ExtResource("2_0xm2m")]
+position = Vector2(119, 40)
