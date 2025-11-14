@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8kn0tsd460nq"]
+
+[ext_resource type="Texture2D" uid="uid://d0mx7verya8iw" path="res://Sprite-0001.png" id="1_ql5dw"]
+
+[node name="Colonthree" type="Sprite2D"]
+texture = ExtResource("1_ql5dw")
