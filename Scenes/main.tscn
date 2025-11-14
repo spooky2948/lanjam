@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckeosjg3yu3jp"]
+[gd_scene load_steps=4 format=3 uid="uid://ckeosjg3yu3jp"]
 
-[ext_resource type="PackedScene" uid="uid://1idcbut22ibq" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://b8kn0tsd460nq" path="res://colonthree.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://coomp2fescjtv" path="res://Scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://b8kn0tsd460nq" path="res://Scenes/colonthree.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d345jp6fggpn1" path="res://Scenes/enemy.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D"]
 
@@ -28,3 +29,9 @@ position = Vector2(91, 130)
 
 [node name="Colonthree6" parent="testing" instance=ExtResource("2_0xm2m")]
 position = Vector2(119, 40)
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("projectile_holder") instance=ExtResource("3_8gbba")]
+position = Vector2(167, -13)
+projectile_holder = NodePath("../Projectiles")

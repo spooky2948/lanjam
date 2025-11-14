@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="lan game jam"
+run/main_scene="uid://ckeosjg3yu3jp"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [editor]
 

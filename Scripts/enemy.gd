@@ -1,9 +1,10 @@
 extends CharacterBody2D
 class_name Enemy
 
+var projectile_scene: PackedScene = preload("res://Scenes/bullet.tscn")
+@export var projectile_holder: Node2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+
 
 #
 #func _physics_process(delta: float) -> void:
@@ -30,4 +31,12 @@ func _ready():
 
 
 func create_bullets(): 
-	pass
+	if projectile_holder != null:	
+		var projectile = projectile_scene.instantiate()
+		var rand_x = randf_range(-1,1)
+		var rand_y = randf_range(-1,1)
+		projectile_holder.add_child(projectile)
+		projectile.position = self.position
+		projectile.speed = 200
+		projectile.x_val = rand_x
+		projectile.y_val = rand_y 
