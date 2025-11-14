@@ -37,6 +37,5 @@ func create_bullets():
 		var rand_y = randf_range(-1,1)
 		projectile_holder.add_child(projectile)
 		projectile.position = self.position
-		projectile.speed = 200
-		projectile.x_val = rand_x
-		projectile.y_val = rand_y 
+		projectile.normalised_vector = Vector2(rand_x,rand_y)
+		projectile.speed = 670
