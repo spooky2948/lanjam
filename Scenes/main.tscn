@@ -39,8 +39,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Healthbar" parent="Control" instance=ExtResource("5_kry3j")]
+[node name="Healthbar" parent="CanvasLayer/Control" instance=ExtResource("5_kry3j")]
 layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 207.0
+offset_bottom = 46.0
 
 [node name="Subwaytank" parent="." node_paths=PackedStringArray("projectile_holder") instance=ExtResource("6_21xkr")]
 projectile_holder = NodePath("../Projectiles")
