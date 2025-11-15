@@ -12,7 +12,7 @@ var look = true
 var bullet_vector: Vector2
 
 func _ready():
-	var rand_float = randf_range(0,0.1)
+	var rand_float = randf_range(0,2)
 	animation_delay.start(rand_float)
 
 func _physics_process(delta: float) -> void:

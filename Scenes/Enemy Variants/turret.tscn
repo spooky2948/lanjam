@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://h4vquj1xi1so"]
+
+[ext_resource type="Script" uid="uid://cgwaq31e0ruhf" path="res://Scripts/Enemy Variants/turret.gd" id="1_jbpgy"]
+[ext_resource type="Texture2D" uid="uid://dhc8883wsek6h" path="res://Sprites/icon.svg" id="2_jbpgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu5vh"]
+size = Vector2(32, 16)
+
+[sub_resource type="Animation" id="Animation_uds60"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_yu5vh"]
+resource_name = "shoot_bullet"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"set_line_position"
+}, {
+"args": [],
+"method": &"create_bullets"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_look"
+}, {
+"args": [true],
+"method": &"set_look"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jbpgy"]
+resource_name = "turret_shoot"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.8, 0.80009997),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"create_bullets"
+}, {
+"args": [],
+"method": &"create_bullets"
+}, {
+"args": [],
+"method": &"create_bullets"
+}, {
+"args": [],
+"method": &"create_bullets"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.100000024, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [1.0],
+"method": &"set_relative_rotation"
+}, {
+"args": [0.0],
+"method": &"set_relative_rotation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epjme"]
+_data = {
+&"RESET": SubResource("Animation_uds60"),
+&"shoot_bullet": SubResource("Animation_yu5vh"),
+&"turret_shoot": SubResource("Animation_jbpgy")
+}
+
+[node name="Turret" type="CharacterBody2D" node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_jbpgy")
+anim_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://dyxsn05v2iiiq"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_jbpgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yu5vh")
+debug_color = Color(0.9883916, 0, 0.50093174, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_epjme")
+}
