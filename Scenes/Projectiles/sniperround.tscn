@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://df3t1jyluqnll"]
+
+[ext_resource type="Script" uid="uid://bgrwwf0nyrnxi" path="res://Scripts/Projectiles/tankround.gd" id="1_hg1k7"]
+[ext_resource type="Texture2D" uid="uid://h6kog8bns0jv" path="res://Sprites/bullet.png" id="2_epqqg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhvd6"]
+
+[node name="Sniperround" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_hg1k7")
+speed = 1000.0
+dmg = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xhvd6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_epqqg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

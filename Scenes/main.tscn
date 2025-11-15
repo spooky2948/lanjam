@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://coomp2fescjtv" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://boccra7he5qak" path="res://Scripts/main.gd" id="1_jjvhh"]
-[ext_resource type="PackedScene" path="res://border.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://buyqbklrg17h7" path="res://border.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cujs1k3x4uyx0" path="res://Scenes/Enemy Variants/sniper.tscn" id="4_21xkr"]
 [ext_resource type="PackedScene" uid="uid://b0bk6fsqsi2sy" path="res://Scenes/UI/healthbar.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://clqrqjy2idt20" path="res://Scenes/Enemy Variants/subwaytank.tscn" id="6_21xkr"]
 
@@ -33,7 +34,13 @@ scale = Vector2(100, 1)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="Sniper" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
+position = Vector2(165, -124)
+player = NodePath("../CharacterBody2D")
+projectile_holder = NodePath("../Projectiles")
+
 [node name="Subwaytank" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("6_21xkr")]
+position = Vector2(204, -3)
 player = NodePath("../CharacterBody2D")
 projectile_holder = NodePath("../Projectiles")
 
