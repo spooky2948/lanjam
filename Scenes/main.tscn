@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://coomp2fescjtv" path="res://Scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://buyqbklrg17h7" path="res://border.tscn" id="3_kry3j"]
-[ext_resource type="PackedScene" uid="uid://b0bk6fsqsi2sy" path="res://Scenes/healthbar.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://b0bk6fsqsi2sy" path="res://Scenes/UI/healthbar.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://clqrqjy2idt20" path="res://Scenes/Enemy Variants/subwaytank.tscn" id="6_21xkr"]
 
 [node name="Main" type="Node2D"]
