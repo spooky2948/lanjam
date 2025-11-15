@@ -9,11 +9,13 @@
 [node name="Subwaytank" type="CharacterBody2D"]
 script = ExtResource("1_7m51w")
 projectile_scene = ExtResource("2_jhyy6")
+movement_speed = 11.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jhyy6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.1415927
 texture = ExtResource("2_13qys")
 
 [node name="Timer" type="Timer" parent="."]

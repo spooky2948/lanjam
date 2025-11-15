@@ -46,6 +46,7 @@ func take_dmg(n):
 	if dmg_cooldown == 0:
 		var prev_health = health
 		health -= n*(1-armour)
+		print(health)
 		health_change.emit(prev_health, health)
 		dmg_cooldown = 4
 		if health == 0:
