@@ -20,5 +20,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Border:
 		print("Killing myself")
 		self.queue_free()
-	
 	pass # Replace with function body.
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print("KILLING MYSELF!!!!!! :3")
+		body.die()

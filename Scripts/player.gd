@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var ACC_RATIO : float = 2
 @export var DECEL_RATIO: float = 4
@@ -25,3 +25,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, delta*decel)
 	 
 	move_and_slide()
+
+func die():
+	self.queue_free()
