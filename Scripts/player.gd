@@ -6,6 +6,9 @@ class_name Player
 @export var SPEED_CAP : float = 1000.0 
 @export var MAX_HP : float = 100
 
+@export var health_bar: Healthbar
+
+
 var health : float = MAX_HP
 var armour : float = 0
 var dmg_cooldown : int = 0

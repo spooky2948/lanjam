@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckeosjg3yu3jp"]
+[gd_scene load_steps=6 format=3 uid="uid://ckeosjg3yu3jp"]
 
 [ext_resource type="PackedScene" uid="uid://coomp2fescjtv" path="res://Scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://boccra7he5qak" path="res://Scenes/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://d345jp6fggpn1" path="res://Scenes/enemy.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://buyqbklrg17h7" path="res://border.tscn" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://bn32epfrtnsxl" path="res://Scenes/healthbar.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjvhh")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
+ACC_RATIO = null
+DECEL_RATIO = null
+SPEED_CAP = null
+MAX_HP = null
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
@@ -35,3 +40,12 @@ scale = Vector2(100, 1)
 [node name="Enemy" parent="." node_paths=PackedStringArray("projectile_holder") instance=ExtResource("3_8gbba")]
 position = Vector2(167, -13)
 projectile_holder = NodePath("../Projectiles")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Healthbar" parent="Control" instance=ExtResource("5_kry3j")]
+layout_mode = 0
