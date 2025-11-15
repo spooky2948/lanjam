@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cujs1k3x4uyx0"]
+[gd_scene load_steps=8 format=3 uid="uid://cujs1k3x4uyx0"]
 
 [ext_resource type="Script" uid="uid://dhgjf4deqrg46" path="res://Scripts/Enemy Variants/sniper.gd" id="1_xxvu7"]
 [ext_resource type="Texture2D" uid="uid://b106gahfq6tvf" path="res://Sprites/sniper.png" id="2_pff75"]
@@ -7,8 +7,107 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu5vh"]
 size = Vector2(32, 16)
 
-[node name="Sniper" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_yu5vh"]
+resource_name = "shoot_bullet"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 1.4666667, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"set_line_position"
+}, {
+"args": [],
+"method": &"create_bullets"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_look"
+}, {
+"args": [true],
+"method": &"set_look"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_uds60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epjme"]
+_data = {
+&"RESET": SubResource("Animation_uds60"),
+&"shoot_bullet": SubResource("Animation_yu5vh")
+}
+
+[node name="Sniper" type="CharacterBody2D" node_paths=PackedStringArray("animation_delay", "line", "anim_player")]
 script = ExtResource("1_xxvu7")
+animation_delay = NodePath("AnimationDelay")
+line = NodePath("Line2D")
+anim_player = NodePath("AnimationPlayer")
 projectile_scene = ExtResource("2_yu5vh")
 metadata/_custom_type_script = "uid://dyxsn05v2iiiq"
 
@@ -19,8 +118,16 @@ texture = ExtResource("2_pff75")
 shape = SubResource("RectangleShape2D_yu5vh")
 debug_color = Color(0.9883916, 0, 0.50093174, 0.41960785)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-2, 0)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
 
-[connection signal="timeout" from="Timer" to="." method="create_bullets"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_epjme")
+}
+
+[node name="AnimationDelay" type="Timer" parent="."]
+
+[connection signal="timeout" from="AnimationDelay" to="." method="_on_animation_delay_timeout"]

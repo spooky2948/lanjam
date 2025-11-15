@@ -10,32 +10,57 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jjvhh")
 
+[node name="Border" parent="." instance=ExtResource("3_kry3j")]
+position = Vector2(-243, -2134)
+scale = Vector2(1000, 1)
+
+[node name="Border2" parent="." instance=ExtResource("3_kry3j")]
+position = Vector2(-209.00003, 9495)
+scale = Vector2(1000, 1)
+
+[node name="Border3" parent="." instance=ExtResource("3_kry3j")]
+position = Vector2(-10240, 2728.001)
+rotation = -1.5707964
+scale = Vector2(1000, 1)
+
+[node name="Border4" parent="." instance=ExtResource("3_kry3j")]
+position = Vector2(9754, 3442.0002)
+rotation = -1.5707964
+scale = Vector2(1000, 1)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Border2" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
-position = Vector2(37, 594)
-scale = Vector2(100, 1)
-
-[node name="Border" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
-position = Vector2(26, -490)
-scale = Vector2(100, 1)
-
-[node name="Border3" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
-position = Vector2(1028, -38)
-rotation = 1.5707964
-scale = Vector2(100, 1)
-
-[node name="Border4" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
-position = Vector2(-969, 57)
-rotation = 1.5707964
-scale = Vector2(100, 1)
-
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="Sniper6" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
+position = Vector2(2052, -1470)
+player = NodePath("../CharacterBody2D")
+projectile_holder = NodePath("../Projectiles")
+
+[node name="Sniper5" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
+position = Vector2(1026, -735)
+player = NodePath("../CharacterBody2D")
+projectile_holder = NodePath("../Projectiles")
+
+[node name="Sniper2" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
+position = Vector2(684, -490)
+player = NodePath("../CharacterBody2D")
+projectile_holder = NodePath("../Projectiles")
+
+[node name="Sniper4" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
+position = Vector2(1710, -1225)
+player = NodePath("../CharacterBody2D")
+projectile_holder = NodePath("../Projectiles")
+
+[node name="Sniper3" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
+position = Vector2(1368, -980)
+player = NodePath("../CharacterBody2D")
+projectile_holder = NodePath("../Projectiles")
+
 [node name="Sniper" parent="." node_paths=PackedStringArray("player", "projectile_holder") instance=ExtResource("4_21xkr")]
-position = Vector2(165, -124)
+position = Vector2(342, -245)
 player = NodePath("../CharacterBody2D")
 projectile_holder = NodePath("../Projectiles")
 
@@ -54,12 +79,15 @@ offset_top = 2.0
 offset_right = 42.0
 offset_bottom = 42.0
 
-[node name="Healthbar" parent="CanvasLayer/Control" instance=ExtResource("5_kry3j")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 207.0
-offset_bottom = 46.0
+offset_right = 250.0
+offset_bottom = 50.0
 
-[connection signal="health_change" from="CharacterBody2D" to="CanvasLayer/Control/Healthbar" method="on_health_change"]
-[connection signal="send_initial_health" from="CharacterBody2D" to="CanvasLayer/Control/Healthbar" method="get_health_data"]
+[node name="Healthbar" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("5_kry3j")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="health_change" from="CharacterBody2D" to="CanvasLayer/Control/VBoxContainer/Healthbar" method="on_health_change"]
+[connection signal="send_initial_health" from="CharacterBody2D" to="CanvasLayer/Control/VBoxContainer/Healthbar" method="get_health_data"]
