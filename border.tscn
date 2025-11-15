@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://buyqbklrg17h7"]
+
+[ext_resource type="Script" uid="uid://bvsl40xxs1pra" path="res://border.gd" id="1_ujjr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujjr2"]
+
+[node name="Border" type="Area2D"]
+script = ExtResource("1_ujjr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ujjr2")
+debug_color = Color(0.28331864, 0.38091716, 3.85046e-07, 0.41960785)

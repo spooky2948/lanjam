@@ -1,34 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckeosjg3yu3jp"]
+[gd_scene load_steps=5 format=3 uid="uid://ckeosjg3yu3jp"]
 
 [ext_resource type="PackedScene" uid="uid://coomp2fescjtv" path="res://Scenes/player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://b8kn0tsd460nq" path="res://Scenes/colonthree.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://boccra7he5qak" path="res://Scenes/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://d345jp6fggpn1" path="res://Scenes/enemy.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://buyqbklrg17h7" path="res://border.tscn" id="3_kry3j"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_jjvhh")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="testing" type="Node2D" parent="."]
+[node name="Border2" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
+position = Vector2(37, 594)
+scale = Vector2(100, 1)
 
-[node name="Colonthree" parent="testing" instance=ExtResource("2_0xm2m")]
-position = Vector2(41, -32)
+[node name="Border" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
+position = Vector2(26, -490)
+scale = Vector2(100, 1)
 
-[node name="Colonthree2" parent="testing" instance=ExtResource("2_0xm2m")]
-position = Vector2(-21, 96)
+[node name="Border3" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
+position = Vector2(1028, -38)
+rotation = 1.5707964
+scale = Vector2(100, 1)
 
-[node name="Colonthree3" parent="testing" instance=ExtResource("2_0xm2m")]
-position = Vector2(-76, -57)
-
-[node name="Colonthree4" parent="testing" instance=ExtResource("2_0xm2m")]
-position = Vector2(-90, 49)
-
-[node name="Colonthree5" parent="testing" instance=ExtResource("2_0xm2m")]
-position = Vector2(91, 130)
-
-[node name="Colonthree6" parent="testing" instance=ExtResource("2_0xm2m")]
-position = Vector2(119, 40)
+[node name="Border4" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_kry3j")]
+position = Vector2(-969, 57)
+rotation = 1.5707964
+scale = Vector2(100, 1)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
