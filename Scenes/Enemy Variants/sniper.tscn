@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cujs1k3x4uyx0"]
+
+[ext_resource type="Script" uid="uid://dhgjf4deqrg46" path="res://Scenes/Enemy Variants/sniper.gd" id="1_xxvu7"]
+[ext_resource type="Texture2D" uid="uid://b106gahfq6tvf" path="res://Sprites/sniper.png" id="2_pff75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu5vh"]
+size = Vector2(32, 16)
+
+[node name="Sniper" type="CharacterBody2D"]
+script = ExtResource("1_xxvu7")
+metadata/_custom_type_script = "uid://dyxsn05v2iiiq"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pff75")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yu5vh")
+debug_color = Color(0.9883916, 0, 0.50093174, 0.41960785)
