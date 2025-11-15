@@ -11,3 +11,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func on_health_change(prev_hp: float, new_hp: float) -> void:
+	pass
