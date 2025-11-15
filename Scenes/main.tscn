@@ -38,7 +38,7 @@ scale = Vector2(1000, 1)
 
 [node name="Turret" parent="." node_paths=PackedStringArray("projectile_holder") instance=ExtResource("4_6bp64")]
 position = Vector2(9, -458)
-bullet_number = 12
+bullet_number = 3
 projectile_scene = ExtResource("5_344ge")
 projectile_holder = NodePath("../Projectiles")
 
