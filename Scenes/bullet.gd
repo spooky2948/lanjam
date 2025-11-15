@@ -7,7 +7,6 @@ var normalised_vector : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Being called!")
 	pass # Replace with function body.
 
 
@@ -20,7 +19,6 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Border:
-		print("Bruh")
 		self.queue_free()
 	pass # Replace with function body.
 

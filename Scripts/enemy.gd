@@ -3,7 +3,7 @@ class_name Enemy
 
 @export var projectile_scene: PackedScene = preload("res://Scenes/bullet.tscn")
 @export var projectile_holder: Node2D
-
+@export var movement_speed : float
 
 
 #
@@ -39,5 +39,3 @@ func create_bullets():
 		projectile.position = self.position
 		projectile.normalised_vector = Vector2(rand_x,rand_y)
 		projectile.speed = 670
-	else: 
-		print("bazinga")
