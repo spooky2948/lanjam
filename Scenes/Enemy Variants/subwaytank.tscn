@@ -9,7 +9,7 @@
 [node name="Subwaytank" type="CharacterBody2D"]
 script = ExtResource("1_7m51w")
 projectile_scene = ExtResource("2_jhyy6")
-movement_speed = 11.0
+movement_speed = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jhyy6")
@@ -19,6 +19,7 @@ rotation = 3.1415927
 texture = ExtResource("2_13qys")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="create_bullets"]

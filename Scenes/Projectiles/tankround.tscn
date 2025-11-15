@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xhvd6"]
 
 [node name="Tankround" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_ekyfk")
 speed = 300.0
 dmg = 20

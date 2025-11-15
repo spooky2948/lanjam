@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Border:
-		print("Bruh")
 		self.queue_free()
 	pass # Replace with function body.
 
