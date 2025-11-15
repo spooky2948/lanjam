@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+## acceleration ratio 
 @export var ACC_RATIO : float = 2
 @export var DECEL_RATIO : float = 4
 @export var SPEED_CAP : float = 1000.0 
@@ -12,6 +13,10 @@ var armour : float = 0
 var dmg_cooldown : int = 0
 
 signal health_change(prev_hp: float, new_hp : float)
+signal send_initial_health(hlth: float, max_health : float)
+
+func _ready():
+	send_initial_health.emit(health,MAX_HP)
 
 func _physics_process(delta: float) -> void:
 	var accel = ACC_RATIO*SPEED_CAP
@@ -36,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		dmg_cooldown -= 1
 	move_and_slide()
 
+## gets called whenever player takes damage
 func take_dmg(n):
 	if dmg_cooldown == 0:
 		var prev_health = health
