@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-var projectile_scene: PackedScene = preload("res://Scenes/bullet.tscn")
+@export var projectile_scene: PackedScene = preload("res://Scenes/bullet.tscn")
 @export var projectile_holder: Node2D
 
 

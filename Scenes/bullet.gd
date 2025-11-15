@@ -1,7 +1,7 @@
 extends Area2D
-
-var speed: float
-var normalised_vector: Vector2
+class_name Bullet
+@export var speed : float
+var normalised_vector : Vector2
 @export var dmg = 5
 
 

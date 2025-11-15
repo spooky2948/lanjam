@@ -36,14 +36,13 @@ func _physics_process(delta: float) -> void:
 		dmg_cooldown -= 1
 	move_and_slide()
 
-func take_dmg(n):
+func take_dmg(n : float) -> void:
 	if dmg_cooldown == 0:
 		var prev_health = health
 		health -= n*(1-armour)
 		health_change.emit(prev_health, health)
 		dmg_cooldown = 4
-		print(health)
 		if health == 0:
 			self.die()
-func die():
+func die() -> void:
 	self.queue_free()
